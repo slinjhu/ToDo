@@ -10,11 +10,13 @@ app.viewToDo = Backbone.View.extend({
 	events: {
 		"click .toggle": function(){
 			this.model.toggle();
-			this.render();
 		},
 		"click .delete": function(){
 			console.log("Delete: " + this.model.get("title"));
 		}
-	}
+	},
+	initialize: function() {
+	    this.listenTo(this.model, "change", this.render);
+  	}
 });
 
