@@ -34,9 +34,9 @@
 		<h4 class="list-group-item-heading">
 			<input type="checkbox" class="toggle" <%= done ? "checked" : "" %> >
 			<span contenteditable="true" class="todo-title"><%=title%></span>
-			<span class="glyphicon glyphicon-floppy-open save"></span>
+			<span class="glyphicon glyphicon-floppy-open save" title="Save changes"></span>
 			<% if (done) { %>
-			<span class="glyphicon glyphicon-trash delete"></span>
+			<span class="glyphicon glyphicon-trash delete" title="Delete item"></span>
 			<% } %>
 		</h4>
 		<p class="mb-1">
