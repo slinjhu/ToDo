@@ -4,22 +4,40 @@
 	<title>ToDo</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
 <body>
     <div class="container">
-    	<h1>To Do</h1>
-		<div id="allToDos"></div>
+    	<h1 class="text-center">To Do App</h1>
+
+		<div class="form-group">
+  			<label for="new-todo">New:</label>
+  			<input type="text" class="form-control" id="new-todo">
+		</div>
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">Remaining todos</div>
+  			<div class="panel-body" id="allToDos">
+			</div>
+		</div>
+		
     </div><!-- /.container -->
 
 	<script id="todo-item" type="text/template">
-		<p class=<%= done ? "done" : "undone" %>>
-			<input type="checkbox" class="toggle" 
-				<%= done ? "checked" : "" %>
-			>		
+		<% if (done) { %>
+			<li class="list-group-item list-group-item-success">
+		<% } else { %>
+			<li class="list-group-item list-group-item-danger">
+		<% } %>
+
+		<h4 class="list-group-item-heading">
+			<input type="checkbox" class="toggle" <%= done ? "checked" : "" %> >
 			<%= title %>
-		</p>
+			<span class="glyphicon glyphicon-trash delete"></span>
+		</h4>
+		</li>
 	</script>
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

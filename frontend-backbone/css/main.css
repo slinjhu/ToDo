@@ -1,11 +1,7 @@
-.done{
-	color: green;
+.glyphicon{
+	cursor: pointer;
 }
 
-.undone{
-	color: red;
-}
-
-.withBgColor{
-	background-color: yellow;
+.toggle{
+	cursor: pointer;
 }

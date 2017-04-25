@@ -2,6 +2,7 @@ var app = app || {};
 
 app.viewAllToDos = Backbone.View.extend({
 	tagName: "ul",
+	className: "list-group",
 	render: function(){
 		this.collection.each(this.addToDo, this);
 		return this;
