@@ -1,7 +1,8 @@
+var app = app || {};
 
-app.allToDos.add(new app.ToDo({title: "Improve UT coverage"}));
-app.allToDos.add(new app.ToDo({title: "Fix bug", done: true}));
+app.allToDos.fetch();
 
+console.log(app.allToDos);
 
 var tasksView = new app.viewAllToDos({
 	collection: app.allToDos

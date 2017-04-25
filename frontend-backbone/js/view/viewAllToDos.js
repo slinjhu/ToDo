@@ -10,5 +10,8 @@ app.viewAllToDos = Backbone.View.extend({
 	addToDo: function(todo){
 		var todoView = new app.viewToDo({model: todo});
 		this.$el.append(todoView.render().el);
-	}
+	},
+	initialize: function() {
+		this.listenTo(this.collection, "add", this.addToDo);
+  	}
 });

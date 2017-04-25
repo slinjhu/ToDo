@@ -12,6 +12,7 @@ app.viewToDo = Backbone.View.extend({
 			this.model.toggle();
 		},
 		"click .delete": function(){
+			this.remove();
 			console.log("Delete: " + this.model.get("title"));
 		}
 	},
