@@ -18,4 +18,12 @@ public class ToDoController {
   public Collection<ToDo> index() {
     return toDoRepository.findAll();
   }
+
+  @GetMapping("/mock")
+  public void mock() {
+    toDoRepository.save(new ToDo("Refactor ToDoController", false));
+    toDoRepository.save(new ToDo("Add unit tests", false));
+    toDoRepository.save(new ToDo("Development todo frontend", true));
+    toDoRepository.save(new ToDo("Fix bugs", false));
+  }
 }

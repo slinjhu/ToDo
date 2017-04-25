@@ -7,6 +7,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -15,6 +16,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Data
+@NoArgsConstructor
 public class ToDo {
   @Id
   @GeneratedValue
@@ -31,6 +33,11 @@ public class ToDo {
 
   @Column
   private Boolean done = false;
+
+  public ToDo(String title, Boolean done){
+    this.title = title;
+    this.done = done;
+  }
 }
 
 
