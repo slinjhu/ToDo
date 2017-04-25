@@ -1,0 +1,11 @@
+.done{
+	color: green;
+}
+
+.undone{
+	color: red;
+}
+
+.withBgColor{
+	background-color: yellow;
+}

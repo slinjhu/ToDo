@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ToDo</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+    <div class="container">
+    	<h1>To Do</h1>
+		<div id="allToDos"></div>
+    </div><!-- /.container -->
+
+	<script id="todo-item" type="text/template">
+		<p class=<%= done ? "done" : "undone" %>>
+			<input type="checkbox" class="toggle" 
+				<%= done ? "checked" : "" %>
+			>		
+			<%= title %>
+		</p>
+	</script>
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script src="js/model/ToDo.js"></script>
+	<script src="js/collection/allToDos.js"></script>
+	<script src="js/view/viewToDo.js"></script>
+	<script src="js/view/viewAllToDos.js"></script>
+	<script src="js/todoApp.js"></script>
+</body>
+</html>
