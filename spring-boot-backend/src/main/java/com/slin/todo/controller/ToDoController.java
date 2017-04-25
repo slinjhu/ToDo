@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -32,9 +33,17 @@ public class ToDoController {
   @CrossOrigin
   @PutMapping("/todo/{id}")
   public ToDo save(@RequestBody ToDo todo) {
-    toDoRepository.save(todo);
     log.info("save(): " + todo.toString());
-    return toDoRepository.findOne(todo.getId());
+    toDoRepository.save(todo);
+    return todo;
+  }
+
+  @CrossOrigin
+  @PostMapping("/todo")
+  public ToDo create(@RequestBody ToDo todo) {
+    log.info("create(): " + todo.toString());
+    toDoRepository.save(todo);
+    return todo;
   }
 
   @CrossOrigin
@@ -58,7 +67,7 @@ public class ToDoController {
     toDoRepository.deleteAll();
     toDoRepository.save(new ToDo("Refactor ToDoController", false));
     toDoRepository.save(new ToDo("Add unit tests", false));
-    toDoRepository.save(new ToDo("Development todo frontend", true));
+    toDoRepository.save(new ToDo("Build todo frontend", true));
     toDoRepository.save(new ToDo("Fix bugs", false));
     log.info("mock()");
     return toDoRepository.findAll();
