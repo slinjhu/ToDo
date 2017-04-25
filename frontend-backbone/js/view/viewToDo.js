@@ -14,6 +14,11 @@ app.viewToDo = Backbone.View.extend({
 		"click .delete": function(){
 			this.remove();
 			console.log("Delete: " + this.model.get("title"));
+		},
+		"click .save": function(){
+			let title = this.$el.find(".todo-title").text();
+			this.model.save({title: title});
+			console.log("Save: " + title);
 		}
 	},
 	initialize: function() {

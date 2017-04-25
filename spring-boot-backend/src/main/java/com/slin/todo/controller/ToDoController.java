@@ -8,6 +8,10 @@ import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -19,9 +23,16 @@ public class ToDoController {
 
   @CrossOrigin
   @GetMapping("/todo")
-  public Collection<ToDo> index() {
-    log.info("Received request for all todo");
+  public Collection<ToDo> findAll(@RequestHeader("User-Agent") String userAgent) {
+    log.info("findAll() request from: " + userAgent);
     return toDoRepository.findAll();
+  }
+
+  @CrossOrigin
+  @PutMapping("/todo/{id}")
+  public void save(@RequestBody ToDo todo) {
+    toDoRepository.save(todo);
+    log.info("save(): " + todo.toString());
   }
 
   @GetMapping("/mock")

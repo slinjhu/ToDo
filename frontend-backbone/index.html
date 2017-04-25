@@ -4,7 +4,6 @@
 	<title>ToDo</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
@@ -34,9 +33,16 @@
 
 		<h4 class="list-group-item-heading">
 			<input type="checkbox" class="toggle" <%= done ? "checked" : "" %> >
-			<%= title %>
+			<span contenteditable="true" class="todo-title"><%=title%></span>
+			<span class="glyphicon glyphicon-floppy-open save"></span>
+			<% if (done) { %>
 			<span class="glyphicon glyphicon-trash delete"></span>
+			<% } %>
 		</h4>
+		<p class="mb-1">
+			Created: <%= new Date(created) %> </br>
+			Modified: <%= new Date(modified) %>
+		</p>
 		</li>
 	</script>
 
