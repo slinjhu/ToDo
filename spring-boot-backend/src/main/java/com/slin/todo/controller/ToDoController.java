@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -23,23 +24,43 @@ public class ToDoController {
 
   @CrossOrigin
   @GetMapping("/todo")
-  public Collection<ToDo> findAll(@RequestHeader("User-Agent") String userAgent) {
-    log.info("findAll() request from: " + userAgent);
+  public Collection<ToDo> findAll(@RequestHeader("Origin") String origin) {
+    log.info("findAll() request from " + origin);
     return toDoRepository.findAll();
   }
 
   @CrossOrigin
   @PutMapping("/todo/{id}")
-  public void save(@RequestBody ToDo todo) {
+  public ToDo save(@RequestBody ToDo todo) {
     toDoRepository.save(todo);
     log.info("save(): " + todo.toString());
+    return toDoRepository.findOne(todo.getId());
+  }
+
+  @CrossOrigin
+  @GetMapping("/todo/{id}")
+  public ToDo findById(@PathVariable("id") long id) {
+    log.info("findById(): " + id);
+    return toDoRepository.findOne(id);
+  }
+
+  @CrossOrigin
+  @DeleteMapping("/todo/{id}")
+  public ToDo delete(@PathVariable("id") long id) {
+    ToDo todo = toDoRepository.findOne(id);
+    toDoRepository.delete(id);
+    log.info("delete() by id: " + id);
+    return todo;
   }
 
   @GetMapping("/mock")
-  public void mock() {
+  public Collection<ToDo> mock() {
+    toDoRepository.deleteAll();
     toDoRepository.save(new ToDo("Refactor ToDoController", false));
     toDoRepository.save(new ToDo("Add unit tests", false));
     toDoRepository.save(new ToDo("Development todo frontend", true));
     toDoRepository.save(new ToDo("Fix bugs", false));
+    log.info("mock()");
+    return toDoRepository.findAll();
   }
 }

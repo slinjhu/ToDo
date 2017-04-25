@@ -7,6 +7,5 @@ app.ToDo = Backbone.Model.extend({
 	},
 	toggle: function(){
 		this.save({done: !this.get("done")});
-		console.log((this.get("done") ? "Done: " : "Undone: ") + this.get("title"));
 	}
 });
