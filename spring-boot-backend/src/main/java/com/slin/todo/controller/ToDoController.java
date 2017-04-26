@@ -35,7 +35,7 @@ public class ToDoController {
   public ToDo save(@RequestBody ToDo todo) {
     log.info("save(): " + todo.toString());
     toDoRepository.save(todo);
-    return todo;
+    return toDoRepository.findOne(todo.getId());
   }
 
   @CrossOrigin
