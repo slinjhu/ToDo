@@ -1,0 +1,11 @@
+.pointer{
+	cursor: pointer;
+}
+
+.fa{
+	background-color: aliceblue;
+	color: black;
+	padding: 3px;
+	border-radius: 2px;
+	margin: 2px;
+}
