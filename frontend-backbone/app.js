@@ -14,7 +14,7 @@ app.modelToDo = Backbone.Model.extend({
 //_________________ Collections
 app.collectionToDo = Backbone.Collection.extend({
     model: app.modelToDo,
-    url: "/todo"
+    url: "http://localhost:7000/todo"
 });
 
 //________________ Views
