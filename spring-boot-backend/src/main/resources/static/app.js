@@ -4,9 +4,7 @@ var app = {};
 app.modelToDo = Backbone.Model.extend({
     defaults: {
         title: "Title",
-        done: false,
-        created: 0,
-        modified: 0
+        done: false
     },
     toggle: function(){
         this.save({done: !this.get("done")});
@@ -21,6 +19,8 @@ app.collectionToDo = Backbone.Collection.extend({
 
 //________________ Views
 app.viewToDo = Backbone.View.extend({
+    tagName: "li",
+    className: "list-group-item",
     template: _.template($("#todo-item").html()),
     render: function(){
         var content = this.template(this.model.toJSON());

@@ -13,43 +13,21 @@
     	<h1 class="text-center">To Do App</h1>
 
 		<div class="form-group">
-  			<label for="new-todo">New (type in title and press Enter):</label>
+  			<label for="new-todo">New:</label>
   			<input type="text" class="form-control" id="new-todo">
 		</div>
-		
+
 		<div class="panel panel-default">
-			<div class="panel-heading">Remaining todos</div>
-  			<div class="panel-body">
 				<ul id="all-todo" class="list-group"></ul>
-			</div>
 		</div>
-		
+
     </div><!-- /.container -->
 
 	<script id="todo-item" type="text/template">
-		<% if (done) { %>
-			<li class="list-group-item list-group-item-success">
-		<% } else { %>
-			<li class="list-group-item list-group-item-danger">
-		<% } %>
-
-		<h4 class="list-group-item-heading">
 			<input type="checkbox" class="toggle pointer" <%= done ? "checked" : "" %> >
-			<span contenteditable="true" class="todo-title"><%=title%></span>
-			<span class="save pointer" title="Save changes">
-				<i class="fa fa-floppy-o"></i>
-			</span>
-			<% if (done) { %>
-			<span class="delete pointer" title="Delete item">
-				<i class="fa fa-trash-o" aria-hidden="true"></i>
-			</span>
-			<% } %>
-		</h4>
-		<p class="mb-1">
-			Created: <%= new Date(created) %> </br>
-			Modified: <%= new Date(modified) %>
-		</p>
-		</li>
+			<i class="fa fa-trash-o delete pointer" aria-hidden="true"></i>
+			<span contenteditable="true" class="todo-title <%= done ? 'todo-done' : '' %>"><%=title%></span>
+			<i class="fa fa-floppy-o save pointer"></i>
 	</script>
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
