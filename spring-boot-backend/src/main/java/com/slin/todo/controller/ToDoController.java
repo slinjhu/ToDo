@@ -25,8 +25,8 @@ public class ToDoController {
 
   @CrossOrigin
   @GetMapping("/todo")
-  public Collection<ToDo> findAll(@RequestHeader(value = "Origin", defaultValue = "local") String origin) {
-    log.info("findAll() request from " + origin);
+  public Collection<ToDo> findAll(@RequestHeader("User-Agent") String userAgent) {
+    log.info("findAll() request from " + userAgent);
     return toDoRepository.findAll();
   }
 
