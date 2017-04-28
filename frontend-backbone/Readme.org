@@ -1,0 +1,7 @@
+#+TITLE: Frontend using Backbone.js
+#+AUTHOR: Sen Lin
+
+* Environment
+- Start a static content server in the current folder: ~python -m SimpleHTTPServer~
+
+
