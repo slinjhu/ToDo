@@ -1,0 +1,10 @@
+#+TITLE: Backend with Spring Boot
+#+AUTHOR: Sen Lin
+
+* Environment
+- Java 1.8+
+- For IDE: install Lombok plugin and enable "Annotation Processing".
+
+* Run
+- Use gradle to build: ~./gradlew build~
+- Run the jar file: ~java -jar build/libs/backend-springboot-0.0.1-SNAPSHOT.jar~

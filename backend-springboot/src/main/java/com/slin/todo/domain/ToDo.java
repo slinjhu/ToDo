@@ -29,6 +29,10 @@ public class ToDo {
     this.title = title;
     this.done = done;
   }
+
+  public ToDo(String title){
+    this(title, false);
+  }
 }
 
 

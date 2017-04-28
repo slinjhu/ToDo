@@ -1,4 +1,0 @@
-#+TITLE: To Do Demo
-#+AUTHOR: Sen Lin
-
-* Backend with Spring Boot
